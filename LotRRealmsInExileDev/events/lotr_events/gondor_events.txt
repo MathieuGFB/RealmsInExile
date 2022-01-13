@@ -812,6 +812,65 @@ gondor.0303 = { # Aragorn marries Eowyn.
 	}
 }
 
+gondor.0304 = { # Eowyn marries Faramir
+	type = character_event
+	title = gondor.0304.t
+	desc = gondor.0304.desc
+	theme = family
+
+	left_portrait = {
+		character = root
+		animation = admiration
+	}
+	right_portrait = {
+		character = character:linesteward40
+		animation = love
+	}
+
+	option = {
+		name = gondor.0304.a # Marries Faramir.
+		remove_trait = cannot_marry
+		linesteward40 = { remove_trait = cannot_marry }
+		marry = character:linesteward40
+		set_relation_soulmate = character:linesteward40
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		name = gondor.0304.b # Does not marry Faramir.
+		remove_trait = cannot_marry
+		linesteward40 = { remove_trait = cannot_marry }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
 #### Events about Dol Amroth
 
 gondor.0400 = { # Introduction to Dol Amroth.
@@ -1250,16 +1309,20 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 					}
 					every_in_list = {
 						variable = permanent_tributaries
-						root = {
-							add_to_variable_list = { name = permanent_tributaries target = prev }
-							add_to_variable_list = { name = all_tributaries target = prev }
-							set_variable = { name = suzerain value = this }
-						}
-						set_variable = { name = my_suzerain value = root }
+						free_tributary = yes
 					}		
 					every_in_list = {
 						variable = non_permanent_tributaries
 						remove_variable = my_suzerain
+						remove_variable = tributary_type
+						remove_variable = overlord_type
+						remove_variable = overlord_protector
+						remove_variable = overlord_suzerain
+						remove_variable = tribute_gold_percent
+						remove_variable = monthly_prestige_suzerain
+						remove_variable = monthly_prestige_tributary
+						remove_variable = monthly_piety_suzerain
+						remove_variable = monthly_piety_tributary
 					}	
 					remove_variable = suzerain
 				}
@@ -1320,6 +1383,21 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 		title:c_osgiliath.holder = { # Denethor chooses who he will play as.
 			trigger_event = {
 				id = gondor.0516
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				title:d_druadan_forest.holder = {
+					is_independent_ruler = yes
+				}
+			}
+			make_tributary = {
+				TYPE = tributary_protectorate
+				SUZERAIN = character:lineisildur42
+				TRIBUTARY = title:d_druadan_forest.holder
 			}
 		}
 	}
@@ -1647,9 +1725,21 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				if = { 
 					limit = { 
 						is_married = no
+						character:6000035 = { is_ai = yes }
 					}
 					trigger_event = {
 						id = gondor.0302
+					}
+				}
+				else_if = { 
+					limit = { 
+						is_married = no
+						character:6000035 = { is_player = yes }
+					}
+					character:6000035 = {
+						trigger_event = {
+							id = gondor.0304
+						}
 					}
 				}
 			}
@@ -2127,6 +2217,43 @@ gondor.0517 = { #Notification of the Crowning of Aragorn
 	option = { 
 		name = gondor.0517.b # Damn Dunedain!
 		}
+}
+
+gondor.0518 = { #Aragorn Death handling
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+		this = character:lineisildur42
+	}
+	
+	immediate = {
+		save_scope_as = dead_aragorn
+		every_spouse = {
+			limit = { 
+				this = character:linefinwe30
+				character:linefinwe30 = { is_alive = yes }
+			}
+			add_trait = depressed_1
+			trigger_event = {
+				id = gondor.0519
+				years = 1
+			}
+		}
+	}
+}
+
+gondor.0519 = { #Arwen dies one year after Aragorn if spouse
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	immediate = {
+		death = { death_reason = death_faded_grief }
+	}
 }
 
 ### The King Strife alt-lore events
@@ -4005,10 +4132,7 @@ gondor.2300 = { # Reclamation of Minas Ithil, corruption festers
 		animation = fear
 	}
 	trigger = {
-		OR = {
-			has_religion = religion:free_peoples_religion
-			has_religion = religion:darkness_religion
-		}
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
 		has_title = title:c_minas_ithil
 		title:c_minas_ithil = {
 			has_county_modifier = morgul_corruption_modifier
@@ -4044,10 +4168,7 @@ gondor.2301 = { # Minas Ithil purified
 		animation = personality_bold
 	}
 	trigger = {
-		OR = {
-			has_religion = religion:free_peoples_religion
-			has_religion = religion:darkness_religion
-		}
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
 		has_title = title:c_minas_ithil
 	}
 	option = { # The Witch-King's shadow ends
@@ -4072,10 +4193,7 @@ gondor.2302 = { # Hidden check on status of purification
 	theme = stewardship
 	trigger = {
 		title:c_minas_ithil.holder = {
-			OR = {
-				has_religion = religion:free_peoples_religion
-				has_religion = religion:darkness_religion
-			}
+			NOT = { religion = { is_in_family = rf_forcesofevil } }
 		}
 		title:c_minas_ithil = {
 			has_county_modifier = fading_morgul_corruption_modifier

@@ -1,6 +1,9 @@
 ﻿l_english:
  BOOKMARK_RELATION_NEPHEW: "(Nephew)"
  BOOKMARK_RELATION_NIECE: "(Niece)"
+ BOOKMARK_RELATION_GRANDDAUGHTER:0 "(Granddaughter)"
+ BOOKMARK_RELATION_RIVAL:0 "(Rival)"
+ BOOKMARK_RELATION_VASSAL:0 "(Vassal)"
  
  # Battle in Rohan
  bm_3000_horse_lords:0 "The Horse and the Rider"
@@ -20,6 +23,12 @@
  bookmark_horse_lords_saruman_desc:0 "Saruman is an emissary of the Valar to Middle-earth; he is great among the Wise, chief of the order of the Istari and head of the White Council.\n\nA greater length of his time in Middle-earth has been in the east, traveling the lands of Rhûn, and beyond, even to Mordor whilst Gondor kept watch over it. In 2463 T3A, the White Council was formed in response to the growing threat of Sauron’s return. He spent years in Minas Tirith, Gondor, studying in its libraries and examining its ancient archives before offering his service to the Steward of Minas Tirith as keeper of Isengard.\n\nIn secret, Saruman seeks the One Ring, and starts the new millennium with a choice before him."
  # NOTE Alternative text: "Saruman came to Middle-earth two thousand years ago as a servant of the Valar and sent alongside other Maiar known as the Istari. He has been growing in power and is now corrupted by ambition, jealousy and pride.\n\nResiding in Orthanc, Saruman has long searched for the One Ring as he hopes to make its power his own. And by communicating with Sauron through the palantír he has truly fallen into shadow. Now a servant of darkness, Saruman has bought the loyalty of King Théoden’s advisor Gríma, who he hopes shall help him weaken Rohan." - edited from Julius Caesar.
  
+ bookmark_horse_lords_madogh:0 "King Madogh III"
+ bookmark_horse_lords_madogh_desc:0 "The King of Saralain is the figurehead of a fiercely independent people, bound together by ties of kinship more than any oath of fealty to a lord. Recently crowned following the death of his father, King Gordeg, Madogh has quickly gained a reputation among the clans for his cruelty and short temper. Some see this ferocity as a sign of strength that will protect the clans in these turbulent times, while others see him as a liability and a threat to their existence, branding him as ‘The Mad Dog’ of Saralain.\n\nNearby, his bastard half-brother Shamis slithers in the shadows, waiting for the right moment to strike; while Colan of the rival Clan Ferchar gathers an alliance of his northern kinsmen to tip the balance of power against the young king."
+ bookmark_horse_lords_madogh_alt_shamis:0 "Shamis of Clan Morcad"
+ bookmark_horse_lords_madogh_alt_colan:0 "Colan of Clan Ferchar"
+
+ 
  # Siege of Gondor 
  bm_3000_gondor: "The Siege of Gondor"
  bm_3000_gondor_desc:0 "#TOLKIENQUOTE: “Our enemy is ready, his full strength gathered... This will be the end of Gondor as we know it. Here the hammer stroke will fall hardest.”#!\n#QUOTEDCHARACTER: Gandalf the White.#!\n\nSauron prepares to crush the last great bulwark of the West, the Kingdom of Gondor. His armies are marshalled, his full strength almost gathered. He needs only the One Ring now to make his victory absolute and assure the fall of Gondor.\n\nIn Gondor, the Steward Denethor secludes himself in the White Tower, preparing his realm for the Great Battle to come. His sons wage war in Osgiliath and Ithilien to turn back the tide, and the men of Gondor fight on, defiant to the last.\n\nTo the south, Gondor's old foes in Haradwaith and Umbar are recovering from previous defeats. Nursing a grudge, they look on Gondor's strength, stretched thin, and see an opportunity to finally even the score. \n\nAgainst the threats arrayed against them, can the last kingdom of the Dúnedain hold?"
@@ -31,11 +40,13 @@
  
  bookmark_gondor_adrahil:0 "Prince Adrahil II"
  bookmark_gondor_adrahil_desc:0 "#TOLKIENQUOTE: “And last and proudest, came Imrahil, Prince of Dol Amroth, with gilded banners bearing his token of the Ship and the Silver Swan, and a company of knights in full harness riding grey horses; and behind them seven hundreds of men at arms, tall as lords, grey-eyed, dark-haired, singing as they came.”#!\n\nAdrahil II, Prince of Dol Amroth, stands as a bastion against Corsair and Haradrim incursions from the south, but as he nears his twilight years it falls upon his son, the gallant Imrahil, to carry forth the banner of the Silver Swan against the coming tide of darkness."
+ bookmark_gondor_adrahil_alt_imrahil:0 "Imrahil" # ‘the fair’?
+ bookmark_gondor_adrahil_alt_lothiriel:0 "Lothíriel"
  
  bookmark_gondor_sauron:0 "Dark Lord Sauron"
  bookmark_gondor_sauron_desc:0 "#TOLKIENQUOTE: “For he is very wise, and weighs all things to a nicety in the scales of this malice. But the only measure that he knows is desire, desire for power; and so he judges all hearts.”#!\n\nAfter many years and innumerable setbacks, at last Sauron is prepared to fulfill his grand designs of dominion over all Middle-Earth. Barad-dûr has at last been rebuilt, his armies are rallied, and the West is fractured and weak. What power remains that can hope to stand against Sauron, Lord of the Rings, Lord of the Earth!\n\n#TENGWAR: 5^`V 7x%P 1`N 7j&`V 3`V jE° #!\n#TOLKIENQUOTE: One Ring to rule them all.#!"
- bookmark_gondor_sauron_alt_witchking:0 "Er-Mûrazôr 'The Witch King'"
- BOOKMARK_RELATION_NAZGUL:0 "Ringwraith" 
+ bookmark_gondor_sauron_alt_witchking:0 "Er-Mûrazôr ‘The Witch King’"
+ BOOKMARK_RELATION_NAZGUL:0 "Ringwraith"
  
  bookmark_gondor_kathuphazgan:0 "King Kathuphazgân"
  bookmark_gondor_kathuphazgan_desc:0 "Heir to Castamir the Usurper, and master of the great Haven of Umbar, Kathuphazgân inherited a fractured and broken realm. Their fleets burned and his father slain by the daring Gondorian captain Thorongil, the once-mighty Haven has been painstakingly rebuilt, but even now is not fully restored. The hinterlands have slipped from Umbar's grasp, and blood-purists spread dissent throughout the Haven. Before enacting vengeance for his forefathers, Kathuphazgân must first set his own house in order. \n\nThe third Realm-in-Exile stands at the dawn of a new age precarious, but also perched to take advantage of the war coming."
@@ -47,4 +58,27 @@
  
  # Battle on the Bay (Far Harad)
  bm_3000_harad:0 "Southern Strife"
- bm_3000_harad_desc:0 "Far to the south of Gondor and Mordor's titanic clash, another theater of the great battle for the soul of Middle-earth is set to begin. \n\nThe ancient kingdom of Bellakar stands diminished but still hale - of old ally of Gondor, it remains the primary bullwark of the Free Peoples in Harad.\n\nThe ancient Rây, cosmopolitan and wealthy, maintains an uneasy neutrality, seeking to preserve its propserous position.\n\nThe armies of the Nazgul Khorahil muster on the south of the Bay of Tulwang, awaiting the order of their master to cross and assault their ancient foe Bellakar. \n\nAnd in the barren east of the Dune Sea, the Golden King now tries to raise his dread kingdom anew and begin a new age of blackened despotism."
+ bm_3000_harad_desc:0 "Far to the south of Gondor and Mordor's titanic clash, another theater of the great battle for the soul of Middle-earth is set to begin. \n\nThe ancient kingdom of Bellakar stands diminished but still hale - of old ally of Gondor, it remains the primary bulwark of the Free Peoples in Harad.\n\nThe ancient Rây, cosmopolitan and wealthy, maintains an uneasy neutrality, seeking to preserve its propserous position.\n\nThe armies of the Nazgul Khôrahil muster on the south of the Bay of Tulwang, awaiting the order of their master to cross and assault their ancient foe Bellakar. \n\nAnd in the barren east of the Dune Sea, the Golden King now raises his dread kingdom anew and begin a new age of blackened despotism."
+ 
+ bookmark_harad_golden_king:0 "The Golden King"
+ bookmark_harad_golden_king_desc:0 "Harwenal Vedaraba, the Golden King, was once overlord of all of the Dune Sea, his dread realm securing the region for Sauron. But in the long years after the defeat in the Last Alliance, Harad has flourished and forgotten the subjugation of Sauron.\n\nNow the Dark Lord has sent the Nazgûl of Harad to the south once more, to remind the Haradrim of the fear and homage they should pay their ancient god.\n\nMany of the Covshek Pûst now rally behind their Golden King, eager to see the glory of Abrakhân restored, and beneath them the embers of their subjugated foes."
+ 
+ bookmark_harad_niluhin:0 "High King Nîlûhîn II"
+ bookmark_harad_niluhin_desc:0 "Bellakar is a realm diminished, but not defeated. Through civil war and strife, the Tumakveh have endured, even as their allies grew fewer and their foes multiplied. \n\nNîlûhîn II, King of Bellakar, is a dynamic and young ruler - the death of his father thrust him onto the throne before his time, but in scant years has already proven himself an able one. Now, with the great trial set to begin for the people of Middle-earth, it falls to him and his newborn daughters to shoulder the burden of the shield of the free in Harad."
+ 
+ bookmark_harad_vatalinar:0 "King Vâtalinar"
+ bookmark_harad_vatalinar_mardat:0 "Mardat"
+ bookmark_harad_vatalinar_delasimor:0 "Dêlasîmor II"
+ bookmark_harad_vatalinar_desc:0 "Rây sits in an uneasy quiet. The Solar Dynasty under Vâtalinar maintains their grip upon power, but signs are showing of the strain the realm is under. \n\nIn Tresti, the traditionalist faction has long maintained a stronghold, and has on the whole been quiet for many years. However, Dêlasîmor II might soon deem the time right to oust the Vâtrans from their usurped rule of the Bôzisha-Dâr, particularly if any move is made against his religious brethren.\n\nOn the easternmost border, Mardat, nephew of Suladân of Haruzan, stews. He longs to spread the true faith of Khaz-gramaze throughout the Ray, and is covertly supported by agents of Mordor, who wish to replace the aging and recalcitrant Solar Dynasty..."
+ 
+ bookmark_harad_storm_marshal:0 "Storm-Marshal Arnakhôr II"
+ bookmark_harad_storm_marshal_desc:0 "On the rocky cliffs of Tulwang, Arnakhôr II, master of the militarized realm of the Thôn an-Khârlôkh, prepares. \n\nHis realm exists for a single purpose - to carry out the commands of the Nazgûl Khôrahil, and crush Bellakar. But the Stormhost is a perilous entity - long suppressed, the natives of Tulwang are burning with a desire to revolt, and the proud Anbalûkkhôri lords also remember the days when they were not under the yoke of a distant wraith-king..."
+ 
+ bookmark_harad_ayal:0 "Kataj Ayal"
+ bookmark_harad_ayal_desc:0 "The Tedjin Confederacy, which Ayal has so long shepherded, now is on the precepice of crisis. Ayal is in the last days of his life, and his son Bór plans dramatic reform - ones that will surely be opposed by the conservative Tedjin lords, led by the fiercly proud Azumen..." 
+ bookmark_harad_ayal_bor:0 "Prince Bór"
+ bookmark_harad_ayal_azumen:0 "Azumen"
+ 
+ bookmark_harad_ruadomirh:0 "Ruadômirh sân Isâlin"
+ bookmark_harad_ruadomirh_desc:0 "The desert wastes are difficult to wring a living from. Ruadômirh sân Isâlin knows this more than most. His family has managed to wrest for themselves the center of the Dune Sea, centered around a few small oasises. While they survive, they do not truly prosper. But if the Dune Sea could be unified under a single house, perhaps that might change...\n\nLet the scorpion king rise." 
+ 

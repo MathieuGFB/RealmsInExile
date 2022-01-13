@@ -23,6 +23,10 @@ on_game_start = {
 			name = tedjin_reactionaries_triggered
 			value = no
 		}
+		set_global_variable = {
+			name = tedjin_civil_war_result
+			value = 0 #Not yet occurred
+		}
 		
 		### LotR Shattered Earth Game Rule Initial Event ###
 		title:c_minas_tirith.holder = { #Shattered Earth game rule.
@@ -31,6 +35,23 @@ on_game_start = {
 				days = 1
 			}
         }
+
+		### Cap Dynasty Perks at 5 ###
+		
+		every_living_character = {
+        	limit = { 
+				dynasty = {
+					dynasty_prestige > 6250
+				}
+			}
+			dynasty = {
+				add_dynasty_prestige = {
+					value = dynasty_prestige
+					multiply = -1
+					add = 6250
+				}
+			}
+		}
 
 		### WAR OF THE RING ###
 		# Saruman looks into the palantír.
@@ -269,6 +290,16 @@ on_game_start = {
 					is_landed = yes
 				}
 				trigger_event = tedjin.0100
+			}
+		}
+		
+		character:lineoftumakveh82  = { # Nîlûhîn II, High-King of Bellakar
+			if = {
+				limit = {
+					is_alive = yes
+					is_landed = yes
+				}
+				trigger_event = bellakar.0100
 			}
 		}
 		

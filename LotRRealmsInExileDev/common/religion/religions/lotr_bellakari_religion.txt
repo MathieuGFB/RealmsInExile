@@ -1,4 +1,4 @@
-#Bellakar
+﻿#Bellakar
 #	faith_path_of_wisdom
 #	faith_infinite_wisdom
 #	faith_conservative_eruism
@@ -49,11 +49,13 @@ bellakari_religion = {
 	}
 
 	holy_order_names = {
-		{ name = "holy_order_wardens_of_the_west" }
-		{ name = "holy_order_elendili" }
-		{ name = "holy_order_sentinels_of_the_west" }
+		{ name = "holy_order_narduwi_an_abrazan" }
+		{ name = "holy_order_eonwe_blades_adunaic" }
+		{ name = "holy_order_sentinels_of_ladnoca" }
+		{ name = "holy_order_adherents_of_tulimi_agan" }
+		{ name = "holy_order_blades_of_death" }
 		{ name = "holy_order_the_fellowship_of_place" }
-		{ name = "holy_order_host_of_valinor" }
+		{ name = "holy_order_narduwi_am_batan" }
 		# Keep these Holy Orders here, or use per faith.
 		{ name = "holy_order_disciples_of_the_wise" }
 		{ name = "holy_order_hunters_of_the_dark" }
@@ -67,6 +69,8 @@ bellakari_religion = {
 		{ name = "holy_order_the_faithful" }
 		{ name = "holy_order_the_erudites" }
 	}
+	
+	holy_order_maa = { bellakarani_phalanx }
 
 	localization = { # This is all Norse names for now.
 		#HighGodName
@@ -188,8 +192,8 @@ bellakari_religion = {
 		NegativeAfterLife = lotr_death_deity_name
 		DeathDeityName = lotr_death_deity_name
 		DeathDeityNamePossessive = lotr_death_deity_name_possessive
-		DeathDeitySheHe = CHARACTER_SHEHE_SHE
-		DeathDeityHerHis = CHARACTER_HERHIS_HER
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HE
 		
 		WitchGodName = lotr_witchcraft_god_tu
 		WitchGodHerHis = CHARACTER_HERHIS_HER

@@ -257,7 +257,7 @@ morgothcharacter = {
 sauroncharacter = {
 	texture = "gfx/interface/icons/concept_icons/conceptcharactersauron.dds"
 	parent = conceptmajorcharacter
-	alias = { annatarcharacter sauronthedarklordcharacter maironcharacter lordofmordor }
+	alias = { annatarcharacter sauronthedarklordcharacter maironcharacter lordofmordor zigur }
 }
 ariencharacter = {
 	parent = maiargods
@@ -395,6 +395,11 @@ isildur = {
 }
 elendur = {
 	parent = conceptmajorcharacter
+}
+
+zimrebal = {
+	parent = conceptmajorcharacter
+	alias = { zimrebal_long }
 }
 
 ### The Forces of Darkness ###
@@ -916,7 +921,7 @@ banofthevalar = {
 }
 
 ### The Third Age ###
-	
+
 ########################
 ### Concepts by Race ###
 ########################
@@ -935,6 +940,15 @@ kinstrife = {
 }
 shipkings = {
 	parent = conceptmajorcharacters
+}
+bellakarientail = {
+	parent = conceptmajorloreidea
+}
+asapthubeth = {
+	parent = conceptmajorloreidea
+}
+baitha = {
+	parent = conceptmajorloreidea
 }
 
 ##### Elven Concepts #####

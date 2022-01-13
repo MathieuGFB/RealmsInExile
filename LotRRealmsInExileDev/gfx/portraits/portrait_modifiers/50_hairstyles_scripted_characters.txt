@@ -40,6 +40,11 @@ hairstyles_scripted_characters = {
 			exists = character:lineofhador7 #Turin
 			this = character:lineofhador7 #Turin
             }
+		modifier = {
+                add = 200
+                exists = character:lineofdulgu44 #Stormhost
+                this = character:lineofdulgu44 #Stormhost
+            }
         }
     }
 
@@ -836,6 +841,10 @@ hairstyles_scripted_characters = {
 			exists = character:linefinwe19 #Anaire
 			this = character:linefinwe19 #Anaire
             }
+		modifier = {
+                	add = 200
+			exists = character:lineofdulgu45 #Môbê wife of the Stom Marhsal
+			this = character:lineofdulgu45 #Môbê wife of the Stom Marhsal
         }
     }
 

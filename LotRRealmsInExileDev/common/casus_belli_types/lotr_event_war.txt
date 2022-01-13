@@ -174,6 +174,42 @@ tedjin_civil_war_cb = {
 	}
 
 	on_declaration = {
+		title:k_izindizanda_eruhinim.holder = {
+			trigger_event = {
+				id = tedjin.0153
+				days = { 10 30 }
+			}
+		}
+		title:e_mordor.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
+		title:k_haruzan.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
+		title:k_umbar.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
+		title:e_bellakar.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
+		title:k_felaya.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
+		title:d_nykkea.holder = {
+			trigger_event = {
+				id = tedjin.0150
+			}
+		}
 	}
 
 	on_victory_desc = {
@@ -188,7 +224,13 @@ tedjin_civil_war_cb = {
 	}
 
 	on_victory = {
-		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:attacker = { 
+			show_pow_release_message_effect = yes 
+			hard_imprison_character_effect = {
+				TARGET = scope:defender
+				IMPRISONER = this
+			}
+		}
 		scope:defender = {
 			add_prestige = -500
 			add_dread = -30
@@ -214,39 +256,16 @@ tedjin_civil_war_cb = {
 		if = {
 			limit = {
 				character:lineofsauron = {
-					has_character_flag = flag:promised_tedjin_tributary
+					has_character_flag = promised_tedjin_tributary
 				}
 			}
-			scope:attacker = {
-				make_tributary = {
-					TYPE = tributary_non_permanent
-					SUZERAIN = character:lineofsauron
-					TRIBUTARY = scope:attacker
-				}
+			make_tributary = {
+				TYPE = tributary_non_permanent
+				SUZERAIN = character:lineofsauron
+				TRIBUTARY = scope:attacker
 			}
-		}
-
-		scope:attacker = {
-			add_pressed_claim = title:k_felaya
-			add_pressed_claim = title:k_bellazen
-			add_pressed_claim = title:k_nilulonde
-			add_pressed_claim = title:k_qarsa
-			add_pressed_claim = title:k_aukar
-			add_pressed_claim = title:k_tedja
-		}
-
-		every_duchy = {
-			limit = { 
-				OR = {
-					empire = title:e_bellakar
-					kingdom = title:k_felaya
-					kingdom = title:k_qarsa
-					kingdom = title:k_aukar
-					kingdom = title:k_tedja
-				}
-			}
-			scope:attacker = {
-				add_pressed_claim = prev
+			character:lineofsauron = {
+				remove_character_flag = promised_tedjin_tributary
 			}
 		}
 
@@ -254,6 +273,10 @@ tedjin_civil_war_cb = {
 			set_global_variable = {
 				name = tedjin_civil_war_over
 				value = yes
+			}
+			set_global_variable = {
+				name = tedjin_civil_war_result
+				value = 1 #Azumen Victory
 			}
 			scope:attacker = {
 				add_truce_both_ways = {
@@ -288,7 +311,54 @@ tedjin_civil_war_cb = {
 					}
 				}
 			}
-		}	
+		}
+		
+		scope:attacker = {
+			trigger_event = {
+				id = tedjin.0200
+				days = 7
+			}
+		}
+		scope:war = {
+			every_war_participant = {
+				limit = { 
+					NOT = { this = scope:attacker }
+				}
+				trigger_event = {
+					id = tedjin.0201
+				}
+			}
+		}
+		title:e_mordor.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_haruzan.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_umbar.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:e_bellakar.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_felaya.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:d_nykkea.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
 	}
 
 	white_peace_possible = no
@@ -339,29 +409,54 @@ tedjin_civil_war_cb = {
 			name = tedjin_civil_war_over
 			value = yes
 		}
-		
-		scope:defender = {
-			add_pressed_claim = title:k_mardruak
-			add_pressed_claim = title:k_tedja
-			add_pressed_claim = title:k_umbar
-			add_pressed_claim = title:k_narak
-			add_pressed_claim = title:k_haruzan
-			add_pressed_claim = title:k_harondor
+		set_global_variable = {
+			name = tedjin_civil_war_result
+			value = 2 #Bor Victory
 		}
-
-		every_duchy = {
-			limit = { 
-				OR = {
-					kingdom = title:k_mardruak
-					kingdom = title:k_tedja
-					kingdom = title:k_umbar
-					kingdom = title:k_narak
-					kingdom = title:k_haruzan
-					kingdom = title:k_harondor
+		scope:defender = {
+			trigger_event = {
+				id = tedjin.0202
+				days = 7
+			}
+		}
+		scope:war = {
+			every_war_participant = {
+				limit = { 
+					NOT = { this = scope:defender }
+				}
+				trigger_event = {
+					id = tedjin.0203
 				}
 			}
-			scope:defender = {
-				add_pressed_claim = prev
+		}
+		title:e_mordor.holder = {
+			trigger_event = {
+				id = tedjin.0203
+			}
+		}
+		title:k_haruzan.holder = {
+			trigger_event = {
+				id = tedjin.0203
+			}
+		}
+		title:k_umbar.holder = {
+			trigger_event = {
+				id = tedjin.0203
+			}
+		}
+		title:e_bellakar.holder = {
+			trigger_event = {
+				id = tedjin.0203
+			}
+		}
+		title:k_felaya.holder = {
+			trigger_event = {
+				id = tedjin.0203
+			}
+		}
+		title:d_nykkea.holder = {
+			trigger_event = {
+				id = tedjin.0203
 			}
 		}
 	}
@@ -390,6 +485,406 @@ tedjin_civil_war_cb = {
 	max_defender_score_from_battles = 50
 
 	max_ai_diplo_distance_to_title = 500
+}
+
+tedjin_invasion_cb = {
+	group = invasion
+
+	combine_into_one = yes
+	should_show_war_goal_subview = yes
+	mutually_exclusive_titles = { always = yes }
+
+	allowed_for_character = {
+		has_title = title:k_tedjin
+		global_var:tedjin_civil_war_result > 0
+	}
+	
+	allowed_against_character = {
+		scope:attacker = {
+			ALL_FALSE = {
+				top_liege = scope:defender.top_liege
+				liege = scope:defender
+			}
+		}
+	}
+	
+	allowed_against_character_display_regardless = {
+		scope:defender = {
+			is_guaranteed_by_attackers_top_liege = no
+			is_guaranteed_by_me = no
+		}
+	}	
+	
+	target_titles = all
+	target_title_tier = all
+	target_de_jure_regions_above = yes
+	ignore_effect = change_title_holder
+
+	ai_can_target_all_titles = {
+		always = yes
+	}
+	
+	ai_score = {
+		value = 10
+	}
+	
+	ai_score_mult = {
+		value = 2000
+	}
+
+	valid_to_start = {
+		scope:target = {
+			#any_in_de_jure_hierarchy = {
+			#	tier = tier_county
+			#	neighboring_county_or_viking_conquest_trigger = { CHARACTER = root }
+			#}
+			tier < tier_empire
+			trigger_if = {
+				limit = {
+					global_var:tedjin_civil_war_result = 1 #Reactionary Victory - 1st phase
+				}
+				OR = {
+					kingdom = title:k_tedja
+					kingdom = title:k_mardruak
+					kingdom = title:k_felaya
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					global_var:tedjin_civil_war_result = 2 #Reformist Victory - 1st phase
+				}
+				OR = {
+					kingdom = title:k_tedja
+					kingdom = title:k_mardruak
+					kingdom = title:k_umbar
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					global_var:tedjin_civil_war_result = 3 #Reactionary Victory - 2nd phase
+				}
+				OR = {
+					kingdom = title:k_tedja
+					kingdom = title:k_mardruak
+					kingdom = title:k_felaya
+					kingdom = title:k_bellazen
+					kingdom = title:k_nilulonde
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					global_var:tedjin_civil_war_result = 4 #Reformist Victory - 2nd phase
+				}
+				OR = {
+					kingdom = title:k_tedja
+					kingdom = title:k_mardruak
+					kingdom = title:k_umbar
+					kingdom = title:k_narak
+					kingdom = title:k_haruzan
+					kingdom = title:k_pezarsan
+				}
+			}
+		}
+	}
+
+	should_invalidate = {
+		NOT = {
+			any_in_list = {
+				list = target_titles
+				any_in_de_jure_hierarchy = {
+					tier = tier_county
+					holder = {
+						target_is_same_character_or_above = scope:defender
+					}
+				}
+			}
+		}
+	}
+
+	on_invalidated_desc = msg_invasion_war_invalidated_message
+	
+	on_invalidated = {
+	}
+
+	cost = {
+		piety = {
+			value = 0
+			if = { # Attacking your HoF is impious
+				limit = {
+					exists = scope:attacker.faith.religious_head
+					scope:attacker.faith.religious_head = scope:defender
+				}
+				if = {
+					limit = {
+						scope:attacker.faith = {
+							has_doctrine = doctrine_spiritual_head
+						}
+					}
+					add = {
+						value = massive_piety_value
+						desc = CB_ATTACKER_HOF
+					}
+				}
+				else = {
+					add = {
+						value = medium_piety_value
+						desc = CB_ATTACKER_HOF
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:attacker.faith = scope:defender.faith
+					scope:defender = {
+						has_government = theocracy_government
+					}
+				}
+				add = {
+					value = medium_piety_value
+					desc = CB_ATTACKER_THEOCRACY
+				}
+			}
+		}
+		prestige = {
+			value = 0
+			add = {
+				every_in_list = {
+					list = target_titles
+					limit = { tier = tier_county }
+					add = {
+						value = 100
+					}
+				}
+				every_in_list = {
+					list = target_titles
+					limit = { tier = tier_duchy }
+					add = {
+						value = 200
+					}
+				}
+				every_in_list = {
+					list = target_titles
+					limit = { tier = tier_kingdom }
+					add = {
+						value = 600
+					}
+				}
+				desc = "CB_CLAIM_COST_TARGET_TITLES"
+			}
+			# Bellum Justum Perk
+			if = {
+				limit = {
+					scope:attacker = {
+						has_perk = bellum_justum_perk
+					}
+				}
+				multiply = {
+					add = bellum_justum_discount_percentage
+					divide = 100
+					desc = CB_ATTACKER_BELLUM_JUSTUM
+				}
+			}
+
+			# Dynasty Warfare Perk
+			if = {
+				limit = {
+					scope:attacker = {
+						has_dynasty = yes
+						dynasty = {
+							has_dynasty_perk = warfare_legacy_2
+						}
+					}
+				}
+				multiply = {
+					value = warfare_legacy_2_discount
+					desc = CB_ATTACKER_DYNASTY_WARFARE
+				}
+			}
+			
+			if = {
+				limit = {
+					has_game_rule = no_cost_casus_belli_costs
+				}
+				multiply = {
+					value = 0
+					desc = CB_GAME_RULE_NO_COST
+				}
+			}
+		}
+	}
+	
+	on_declaration = {
+		on_declared_war = yes
+	}	
+
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:attacker = { is_local_player = yes } }
+				desc = invasion_war_victory_desc_attacker
+			}
+			desc = invasion_war_victory_desc
+		}
+		triggered_desc = {
+			trigger = { scope:attacker = { is_local_player = yes } }
+			desc = invasion_war_warning_desc
+		}
+	}
+	
+	on_victory = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		
+		setup_invasion_cb = {
+			titles = target_titles
+			attacker = scope:attacker
+			defender = scope:defender
+			change = scope:change
+			take_occupied = yes
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		# Attacker gets Prestige Experience, Defender loses Prestige, all other participants gain Prestige based on their war contribution.
+		modify_all_participants_fame_values = {
+			WINNER = scope:attacker
+			LOSER = scope:defender
+			FAME_BASE = scope:cb_prestige_factor # Set by 'setup_invasion_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = 10
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 10
+			LOSER_ALLY_FAME_SCALE = 10
+		}
+
+		# Truce
+		add_truce_attacker_victory_effect = yes
+
+		# FP1: note the victory for future memorialisation via stele (if applicable).
+		scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
+	}
+
+	on_white_peace_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = invasion_war_white_peace_desc_defender
+			}
+			desc = invasion_war_white_peace_desc
+		}
+	}
+	
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		# Prestige for the attacker's war allies
+		add_from_contribution_attackers = {
+			prestige = major_prestige_value
+			opinion = {
+				modifier = contributed_in_war
+			}
+		}
+
+		# Prestige for the defender's war allies
+		add_from_contribution_defenders = {
+			prestige = major_prestige_value
+			opinion = {
+				modifier = contributed_in_war
+			}
+		}
+
+		# Truce
+		add_truce_white_peace_effect = yes
+
+		scope:attacker = {
+			add_prestige = mongol_invasion_cb_prestige_white_peace
+			stress_impact = {
+				ambitious = medium_stress_impact_gain
+				arrogant = medium_stress_impact_gain
+			}
+		}
+
+		scope:defender = {
+			stress_impact = {
+				arrogant = medium_stress_impact_gain
+			}
+		}
+	}
+
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = invasion_war_white_peace_desc_defender
+			}
+			desc = invasion_war_white_peace_desc
+		}
+	}
+	
+	on_defeat = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		# Prestige loss for the attacker
+		scope:attacker = {
+			pay_short_term_gold = {
+				gold = 5
+				target = scope:defender
+				yearly_income = yes
+			}
+			add_prestige = {
+				value = massive_prestige_value
+				multiply = -1.0
+			}
+		}
+		
+		setup_invasion_cb = {
+			titles = target_titles
+			attacker = scope:attacker
+			defender = scope:defender
+			claimant = scope:claimant
+			victory = no
+		}
+
+		# Attacker loses Prestige, all other war participants gain Prestige (Defender gains full prestige, all allies on both sides gain based on war contribution).
+		modify_all_participants_fame_values = {
+			WINNER = scope:defender
+			LOSER = scope:attacker
+			FAME_BASE = scope:cb_prestige_factor # Set by 'setup_claim_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = 10
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 10
+			LOSER_ALLY_FAME_SCALE = 10
+		}
+	
+		add_truce_attacker_defeat_effect = yes
+		
+		scope:attacker = {
+			save_temporary_scope_as = loser
+		}
+		on_lost_aggression_war_discontent_loss = yes
+	}
+	
+	transfer_behavior = transfer
+	
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+	
+	war_name = "INVASION_WAR_NAME"
+	war_name_base = "INVASION_WAR_NAME_BASE"
+	cb_name = "TEDJIN_INVASION_CB_NAME"
+	
+	interface_priority = 100
+	
+	use_de_jure_wargoal_only = yes
+	
+	attacker_wargoal_percentage = 0.8
 }
 
 castamir_claim_cb = {
@@ -1682,6 +2177,54 @@ final_battle_gondor_cb = {
 			}
 			death = nazgul5
 		}
+		character:goldenking1 = {
+			every_held_title = {
+				limit = {
+					tier > tier_county
+				}
+				holder = { # Destroy that title
+					destroy_title = prev
+				}
+			}
+			every_held_title = { # Distribute excess non-capital counties to new characters
+			
+				limit = { # For every non-capital county
+					tier = tier_county
+				}
+	
+				set_county_faith = faith:faith_kanra
+	
+				save_temporary_scope_as = excess_title
+	
+				create_character = { # Create a new character to hold the title
+					employer = root
+					culture = culture:pust
+					faith = faith:faith_kanra
+					after_creation = {
+						save_temporary_scope_as = new_holder
+					}
+				}
+				
+				create_title_and_vassal_change = { # Define type of title change as a granting of the title
+					type = granted
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				
+				scope:excess_title = { # Set the new character to be the new holder of the title
+					change_title_holder = {
+						holder = scope:new_holder
+						change = scope:title_change
+					}
+				}
+				
+				resolve_title_and_vassal_change = scope:title_change # Take a look at yourself, and then make that... change!
+	
+#				game_rule_create_spouse_and_children = { CHARACTER = scope:new_holder } # Create a family for the new holder
+				
+			}
+			death = goldenking1
+		}
 		
 		# Attacker gets Prestige Experience, Defender loses Prestige, all other participants gain Prestige based on their war contribution.
 		modify_all_participants_fame_values = {
@@ -1703,6 +2246,30 @@ final_battle_gondor_cb = {
 				trigger_event = {
 					id = gondor.2103
 					days = 30
+				}
+			}
+			every_living_character = {
+				limit = {
+					OR = {
+						faith = faith:lidless_eye
+						faith = faith:red_eye_cult
+					}
+					OR = {
+						has_character_flag = is_saruman
+						any_liege_or_above = {
+							has_character_flag = is_saruman
+						}
+					}
+				}
+				set_character_faith = faith:white_hand_cult
+				every_held_title = {
+					limit = {
+						OR = {
+							faith = faith:lidless_eye
+							faith = faith:red_eye_cult
+						}					
+					}
+					set_county_faith = faith:white_hand_cult
 				}
 			}
 			every_living_character = {
@@ -1834,6 +2401,44 @@ final_battle_gondor_cb = {
 						faith = faith:lidless_eye
 						faith = faith:red_eye_cult
 					}
+					culture_group = culture_group:lotr_sandmen_group
+				}
+				set_character_faith = faith:faith_sanbaiz
+				every_held_title = {
+					limit = {
+						OR = {
+							faith = faith:lidless_eye
+							faith = faith:red_eye_cult
+						}					
+					}
+					set_county_faith = faith:faith_sanbaiz
+				}				
+			}
+			every_living_character = {
+				limit = {
+					OR = {
+						faith = faith:lidless_eye
+						faith = faith:red_eye_cult
+					}
+					culture_group = culture_group:lotr_nafarati_group
+				}
+				set_character_faith = faith:faith_nafar
+				every_held_title = {
+					limit = {
+						OR = {
+							faith = faith:lidless_eye
+							faith = faith:red_eye_cult
+						}					
+					}
+					set_county_faith = faith:faith_nafar
+				}				
+			}
+			every_living_character = {
+				limit = {
+					OR = {
+						faith = faith:lidless_eye
+						faith = faith:red_eye_cult
+					}
 					NOR = {	
 						culture_group = culture_group:lotr_mountain_orc_group
 						culture_group = culture_group:lotr_uruk_group
@@ -1844,6 +2449,8 @@ final_battle_gondor_cb = {
 						culture_group = culture_group:lotr_dunlending_group
 						culture_group = culture_group:lotr_gondorian_gwathuirim_group
 						culture_group = culture_group:lotr_hadorim_group
+						#culture_group = culture_group:lotr_sandmen_group
+						#culture_group = culture_group:lotr_nafarati_group
 					}
 				}
 				set_character_faith = faith:melkorite
@@ -1856,6 +2463,15 @@ final_battle_gondor_cb = {
 					}
 					set_county_faith = faith:melkorite
 				}				
+			}
+			every_county = {
+				limit = {
+					OR = {
+						faith = faith:lidless_eye
+						faith = faith:red_eye_cult
+					}
+				}
+				set_county_faith = this.holder.faith
 			}
 		}
 		

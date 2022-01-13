@@ -7108,13 +7108,14 @@ lineofdulgu44 = {
     dynasty = dynasty_dulgu
     religion = faith_anballukhor
     culture = anbalukkhori
+    dna = stormhost_dna
 
     father = lineofdulgu41
     mother = lineofdulgu42
 
     sexuality = heterosexual
 
-    trait = zealous
+    trait = gregarious
     trait = sadistic
     trait = wrathful
 
@@ -7129,6 +7130,7 @@ lineofdulgu44 = {
 
     6991.7.26 = {
         birth = yes
+		add_character_flag = has_scripted_appearance
     }
 
     7026.1.18 = {
@@ -7145,6 +7147,7 @@ lineofdulgu45 = {
 
     religion = faith_anballukhor
     culture = anbalukkhori
+    dna = Storm_Wife_Morbe_dna 
 
     sexuality = heterosexual
 
@@ -7160,7 +7163,9 @@ lineofdulgu45 = {
     prowess = 4
 
     trait = education_martial_2
-
+    trait = beauty_good_3
+    trait = seducer 
+    
     7009.9.16 = {
         birth = yes
     }

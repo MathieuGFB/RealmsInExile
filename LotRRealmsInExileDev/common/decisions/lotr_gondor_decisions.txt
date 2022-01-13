@@ -171,7 +171,10 @@ decision_reclaim_umbar = {
 	is_shown = {
 		has_culture_group = culture_group:lotr_dunedain_group
 		is_landed = yes
-		is_gondor = yes
+		OR = {
+			has_title = title:e_gondor
+			has_title = title:e_gondor_steward
+		}
 		OR = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
@@ -285,6 +288,7 @@ decision_league_of_pelargir = {
 				target = flag:league_of_pelargir_decision
 			}
 			is_gondor = yes
+			has_title = title:e_numenor_in_exile
 		}
 	}
 	
@@ -941,7 +945,10 @@ decision_destroy_mordor = {
 	is_shown = {
 		is_ruler = yes
 		is_landed = yes
-		is_gondor = yes
+		OR = {
+			is_gondor = yes
+			has_primary_title = title:e_numenor_in_exile
+		}	
 		has_culture_group = culture_group:lotr_dunedain_group
 		exists = title:e_mordor
 		NOR = {
@@ -950,7 +957,7 @@ decision_destroy_mordor = {
 				target = flag:decision_destroy_mordor
 				}
 			has_title = title:e_mordor
-			religion = religion:forces_of_evil_religion
+			religion = { is_in_family = rf_forcesofevil }
 		}
 	}
 	is_valid_showing_failures_only = {
@@ -1302,11 +1309,11 @@ decision_numenor_in_exile = {
 	
 	is_valid = {
 		prestige_level >= very_high_prestige_level
-		completely_controls = title:e_thani_hazad
-		completely_controls = title:e_umbar
-		completely_controls = title:e_bellakar
-		completely_controls = title:e_gondor
-		#completely_controls = title:e_arnor
+		completely_controls_region = middleearth_haradwaith_umbar
+		completely_controls_region = custom_bellakar
+		completely_controls_region = custom_gondorian_heartlands
+		completely_controls_region = custom_anbalkumagan
+		#completely_controls_region = title:e_arnor
 	}
 	is_valid_showing_failures_only = {
 		is_imprisoned = no

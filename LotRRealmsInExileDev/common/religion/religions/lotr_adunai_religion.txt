@@ -45,8 +45,13 @@
 		{ name = "holy_order_heirs_of_anadune" }
 		{ name = "holy_order_blades_of_death" }
 		{ name = "holy_order_eonwe_blades_adunaic" }
+		{ name = "holy_order_flaming_swords" }
+		{ name = "holy_order_jewels_of_the_stars" }
+		{ name = "holy_order_winds_of_death" }
 	}
-
+	
+	holy_order_maa = { black_numenorean_vanguard }
+	
 	localization = {
 		#HighGodName
 		HighGodName = manwe_adunaic
@@ -89,9 +94,9 @@
 		#FateGod
 		FateGodName = namo_adunaic
 		FateGodNamePossessive = namo_adunaic_possessive
-		FateGodSheHe = CHARACTER_SHEHE_THEY
-		FateGodHerHis = CHARACTER_HERHIS_THEIR
-		FateGodHerHim = CHARACTER_HERHIM_THEM
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
 		#KnowledgeGod
 		KnowledgeGodName = irmo_adunaic
 		KnowledgeGodNamePossessive = irmo_adunaic_possessive
@@ -109,9 +114,9 @@
 		#TricksterGod
 		TricksterGodName = vana_adunaic
 		TricksterGodNamePossessive = vana_adunaic_possessive
-		TricksterGodSheHe = CHARACTER_SHEHE_HE
-		TricksterGodHerHis = CHARACTER_HERHIS_HIS
-		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodSheHe = CHARACTER_SHEHE_SHE
+		TricksterGodHerHis = CHARACTER_HERHIS_HER
+		TricksterGodHerHim = CHARACTER_HERHIM_HER
 		#NightGod
 		NightGodName = varda_adunaic
 		NightGodNamePossessive = varda_adunaic_possessive
@@ -169,8 +174,8 @@
 		NegativeAfterLife = paganism_afterlife
 		DeathDeityName = namo_adunaic
 		DeathDeityNamePossessive = namo_adunaic_possessive
-		DeathDeitySheHe = CHARACTER_SHEHE_SHE
-		DeathDeityHerHis = CHARACTER_HERHIS_HER
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
 		WitchGodName = darkness_god_night
 		WitchGodHerHis = CHARACTER_HERHIS_HER
 		WitchGodSheHe = CHARACTER_SHEHE_HE
